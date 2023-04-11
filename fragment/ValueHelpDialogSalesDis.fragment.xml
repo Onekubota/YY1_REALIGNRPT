@@ -1,0 +1,54 @@
+<core:FragmentDefinition
+	xmlns="sap.ui.comp.valuehelpdialog"
+	xmlns:m="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:core="sap.ui.core">
+	<ValueHelpDialog
+		title="Sales Office"
+		ok=".onValueHelpSalesDisOkPress"
+		cancel=".onValueHelpSalesDisCancelPress"
+		supportRanges="true"
+		key="BZIRK"
+		descriptionKey="BZTXT"
+        supportMultiselect="false">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearchSalesDist" isRunningInValueHelpDialog="true">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem
+						groupName="_BASIC"
+						name="BZIRK"
+						label="Sales District"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="BZIRK" />
+						</fb:control>
+					</fb:FilterGroupItem>
+                    	<fb:FilterGroupItem
+						groupName="_BASIC"
+						name="BZTXT"
+						label="District Name"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="BZTXT" />
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>
+
+<!-- <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Products"
+		items="{/VL_SH_H_T171}"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpCloseSales"
+		cancel=".onValueHelpCloseSales">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"
+			title="{BZIRK}"
+			description="{BZTXT}" />
+	</SelectDialog>
+</core:FragmentDefinition> -->

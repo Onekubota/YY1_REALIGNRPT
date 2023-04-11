@@ -1,0 +1,243 @@
+<mvc:View controllerName="zrealignreport.zrealignreport.controller.Report"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table" height="100%">
+    <App>
+        <pages>
+            <Page showHeader="false">
+                <content>
+                    <smartFilterBar:SmartFilterBar id="smartFilterBar" class="sapUiSmallMarginTop" persistencyKey="SmartFilterPKey" considerSelectionVariants="true" useDateRangeType="true" entitySet="RealignmentDataSet" initialise="onInitSmartFilterBar" search="onGoBtnPress">
+                        <!-- layout data used to make the table growing but the filter bar fixed -->
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="SalesOrganization" mandatory="mandatory" index="0" considerSelectionVariants="true" label="Sales Organization" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idSalesOrg" visible="true"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="DistributionChannel" mandatory="mandatory" index="1" considerSelectionVariants="true" label="Distribution Channel" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idDisChnl"/>
+                        </smartFilterBar:controlConfiguration>
+
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="Division" filterType="single" index="2" mandatory="mandatory" considerSelectionVariants="true" label="Division" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idDivision"/>
+                        </smartFilterBar:controlConfiguration>
+                         <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="CreatedOnDate" id="idCreatedOnDate" mandatory="mandatory" index="3" considerSelectionVariants="true" label="Created On Date" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true">
+                    <smartFilterBar:customControl>
+								<DateRangeSelection id="DP5"></DateRangeSelection>
+							</smartFilterBar:customControl>
+    
+               </smartFilterBar:ControlConfiguration>
+                            <!-- <smartFilterBar:ControlConfiguration key="ValidityDate" change="onChange" minDate="{getDisabledDatesModel>/startDate}" considerSelectionVariants="true" index="9" label="Valid On Date" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idValidityDate"/> -->
+                        </smartFilterBar:controlConfiguration>
+
+                        <!-- <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="CreatedOnDate" mandatory="mandatory" conditionType="sap.ui.comp.config.condition.DateRangeType" considerSelectionVariants="true" index="3" label="Created On Date" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idCreatedOnDate"/>
+                        </smartFilterBar:controlConfiguration> -->
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="SalesOffice" filterType="single" considerSelectionVariants="true" index="4" label="Sales Office" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idSalesOffice"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="SalesGroup" filterType="single" considerSelectionVariants="true" index="5" label="Sales Group" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idSalesGrp"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="SalesDistrict" filterType="single" considerSelectionVariants="true" index="6" label="Sales District" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idSalesDis"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="PersonalNo" mandatory="mandatory" index="7" considerSelectionVariants="true" label="Personal No" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" filterType="single" id="idPersnlNo"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="NewPersonalNo" index="8" considerSelectionVariants="true" label="New Personal No" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idNewPerNo"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="Category" index="9" considerSelectionVariants="true" label="Category" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idCategory"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="BPNumber" index="10" considerSelectionVariants="true" label="BP Number" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idBpNumber"/>
+                        </smartFilterBar:controlConfiguration>
+                         <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="PartnerFunction" considerSelectionVariants="true" index="11" label="Partner Function" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idPartnerFunction"/>
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="ValidityDate" id="idValidityDate" index="9" label="Valid On Date" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true">
+                    <smartFilterBar:customControl>
+								<DatePicker id="DP6"  valueFormat="yyyy-MM-dd" showCurrentDateButton="true" displayFormat="long"></DatePicker>
+							</smartFilterBar:customControl>
+    
+               </smartFilterBar:ControlConfiguration>
+                            <!-- <smartFilterBar:ControlConfiguration key="ValidityDate" change="onChange" minDate="{getDisabledDatesModel>/startDate}" considerSelectionVariants="true" index="9" label="Valid On Date" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true" id="idValidityDate"/> -->
+                        </smartFilterBar:controlConfiguration>
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="BusinessPartnerRB" index="10" label="Select Category" groupId="_BASIC" visibleInAdvancedArea="true" hasValueHelpDialog="true">
+                                <smartFilterBar:customControl>
+                                    <ComboBox selectionChange="SelectedFilter" id="idSelectionChange" selectedKey="BusinessPartnerRB">
+                                        <core:Item text="Update Relationship Category" key="BusinessPartnerRB"/>
+                                        <core:Item text="Update Open Sales Order" key="OpenSalesOrderRB"/>
+                                    </ComboBox>
+                                </smartFilterBar:customControl>
+
+                            </smartFilterBar:ControlConfiguration>
+                        </smartFilterBar:controlConfiguration>
+
+
+
+                    </smartFilterBar:SmartFilterBar>
+
+                    <smartTable:SmartTable height="100%" width="100%"  beforeExport="onBeforeExport" enableAutoColumnWidth="true" id="idRelCategory" visible="true" 
+                    smartFilterId="smartFilterBar" header="Update Relationship Category Output Screen" entitySet="RealignmentDataSet" 
+                    useExportToExcel="true" class="sapUiResponsiveContentPadding" tableType="ResponsiveTable" useTablePersonalisation="true" 
+                    considerSelectionVariants="true" persistencyKey="SmartTablePKey" enableAutoBinding="false"  beforeRebindTable="onBeforeRebindTable" 
+                    afterRebindTable="onAfterRebind" 
+                    initiallyVisibleFields="BPNumber,BPName,Category,DistributionChannel,Division,ExistPersonalNo,ExstSalesOfc,NewSalesOfc,ExstSalesGroup,NewPersonalNo,ExstSalesDist,NewSalesDist" requestAtLeastFields="NewPersonalNo,NewSalesOfc,NewSalesGroup,NewSalesDist" useVariantManagement="false">
+                        <smartTable:customToolbar>
+                            <OverflowToolbar design="Transparent">
+                                <ToolbarSpacer/>
+                                  <FlexBox>
+							<items>
+							
+								<u:FileUploader id="FileUploaderRel" buttonOnly="false" name="SalesOrderFileUploader" tooltip="{i18n>SelectFile}" uploadUrl="/sap/opu/odata/sap/ZGW_OTC_REALIGNMENT_SRV/RealignmentDataSet" fileType="XLSX" sendXHR="false" useMultipart="false" uploadStart="handleBeforeUploadStarts" change="handleFileChange" uploadComplete="handleUploadComplete" maximumFileSize="1"
+                                 sameFilenameAllowed="true" typeMissmatch="onTypeMissMatch" fileSizeExceed="onfileSizeExceed" class="sapUiSmallMarginBeginEnd"/>
+							</items>
+						</FlexBox>
+                                <Button text="Save" tooltip="Save" press="fnSaveDeepRel"/>
+                                <Button text="Mass Save" tooltip="MassSave" press="onMassSaveRel"/>
+                            </OverflowToolbar>
+                        </smartTable:customToolbar>
+                        <t:Table width="100%" id="idTab" rows="{path:'/RealignmentDataSet'}" visibleRowCount="10">
+                            <t:columns>
+                             <t:Column id="NewValidToDate">
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewValidToDate", "type":"date", "columnKey": "NewValidToDate", "width": "360px", "columnIndex": 2}' />
+                                    </t:customData>
+                                    <Text  text="NewValidToDate" />
+                                    <t:template>
+                                    <!-- <DatePicker value="1999-12-31" valueFormat="yyyy-MM-dd"/> -->
+
+                                     <DatePicker minDate="{dateModel>/tdate}" showCurrentDateButton="true" value="{
+								path: 'NewValidToDate',
+								type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'yyyy/MM/dd', strictParsing: true , UTC: true}
+							    }" displayFormat="dd.MM.yyyy"/>
+
+                                     <!-- <DatePicker change="handleChange" value="9999-12-31" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy"/> -->
+                                    <!-- <DatePicker id="IdNewValidToDateRel" value="{NewValidToDate}" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy"></DatePicker> -->
+                                    
+                                        <!-- <Input id="IdNewValidToDateRel" value="{NewValidToDate}" /> -->
+
+
+                                          
+                                    </t:template>
+                                </t:Column>
+                                <t:Column id="NewPersonalNo">
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewPersonalNo","columnKey": "NewPersonalNo", "width": "360px", "columnIndex": 4}' />
+                                    </t:customData>
+                                    <Text  text="NewPersonalNo" />
+                                    <t:template>
+                                       <Input id="IdNewPernoInpRel" value="{NewPersonalNo}" showValueHelp="true" valueHelpRequest=".onValueHelpRequested2"/>
+                                    </t:template>
+                                </t:Column>
+                                <t:Column>
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewSalesOfc","columnKey": "NewSalesOfc", "width": "360px", "columnIndex": 6}' />
+                                    </t:customData>
+                                    <Text text="NewSalesOfc"/>
+                                    <t:template>
+                                        <Input id="idNewSalesOfcInpRel" value="{NewSalesOfc}" showValueHelp="true" valueHelpRequest=".onValueHelpRequestedSalesOfc" />                                        
+                                    </t:template>
+                                </t:Column>
+                                <t:Column>
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewSalesGroup","columnKey": "NewSalesGroup", "width": "360px", "columnIndex": 8}' />
+                                    </t:customData>
+                                    <Text text="NewSalesGroup"/>
+                                    <t:template>
+                                        <Input id="idNewSalesGroupInpRel" value="{NewSalesGroup}" showValueHelp="true" valueHelpRequest=".onValueHelpRequestedSalesGrp" />                                    
+                                    </t:template>
+                                </t:Column>
+                                <t:Column>
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewSalesDist","columnKey": "NewSalesDist", "width": "360px", "columnIndex": 10}' />
+                                    </t:customData>
+                                    <Text text="NewSalesDist"/>
+                                    <t:template>
+                                        <Input id="idNewSalesDistInpRel" value="{NewSalesDist}" showValueHelp="true" valueHelpRequest=".onValueHelpRequestedSalesDis" />
+                                    </t:template>
+                                </t:Column>
+                            </t:columns>
+                        </t:Table>
+                    </smartTable:SmartTable>
+
+                    <smartTable:SmartTable id="idSalesOrder" smartFilterId="smartFilterBar" visible="false" header="Update Open Sales Order Output Screen" entitySet="RealignmentDataSet" tableType="Table" useTablePersonalisation="true" considerSelectionVariants="true" persistencyKey="SmartTablePKey" enableAutoBinding="false" showRowCount="true" beforeRebindTable="onBeforeRebindTable" afterRebindTable="onAfterRebind" beforeExport="onBeforeExport" initiallyVisibleFields="SalesDoc,SalesDocNo,ValidityDate,CreatedOnDate,SoldToParty,SalesOrganization,DistributionChannel,Division,PartnerFunction,ExistPersonalNo,NewPersonalNo,ExstSalesOfc,NewSalesOfc,ExstSalesGroup,NewSalesGroup,ExstSalesDist,NewSalesDist" requestAtLeastFields="NewPersonalNo,NewSalesOfc,NewSalesGroup,NewSalesDist" useVariantManagement="false">
+                        <smartTable:customToolbar>
+                            <OverflowToolbar design="Transparent">
+                                <ToolbarSpacer/>
+                                 <!-- <Label id="FileNameLabel" text="{i18n>fileName}" labelFor="UploadNameInput" width="auto"/> -->
+                                <FlexBox>
+							<items>
+                            <!-- <u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
+									icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload"/> -->
+							
+								<u:FileUploader id="FileUploader" buttonOnly="false" name="SalesOrderFileUploader" tooltip="{i18n>SelectFile}" uploadUrl="/sap/opu/odata/sap/ZGW_OTC_REALIGNMENT_SRV/RealignmentDataSet" fileType="XLSX" sendXHR="false" useMultipart="false" uploadStart="handleBeforeUploadStarts" change="handleFileChange2" uploadComplete="handleUploadComplete" maximumFileSize="1"
+                                 sameFilenameAllowed="true" typeMissmatch="onTypeMissMatch" fileSizeExceed="onfileSizeExceed" class="sapUiSmallMarginBeginEnd"/>
+							</items>
+						</FlexBox>
+                                <Button text="Save" tooltip="Save" press="fnSaveDeep"/>
+                                <Button text="Mass Save" tooltip="MassSave" press="onMassSave"/>
+                            </OverflowToolbar>
+                        </smartTable:customToolbar>
+                        <t:Table width="100%" id="idSalesOrderUi" threshold="10000" rows="{path:'/RealignmentDataSet'}"  rowSelectionChange="onSelect">
+                            <t:columns>
+                                <t:Column name="NewPersonalNo" id="IdNewPernoCl">
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewPersonalNo","columnKey": "NewPersonalNo", "width": "360px", "columnIndex": 9}' />
+                                    </t:customData>
+                                    <Text text="NewPersonalNo" />
+                                    <t:template>
+                                        <Input id="IdNewPernoInp" value="{NewPersonalNo}" showValueHelp="true" valueHelpRequest=".onValueHelpRequested2"/>                          
+                                    </t:template>
+                                </t:Column>
+                                <t:Column id="IdNewSalesOfcCl">
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewSalesOfc","columnKey": "NewSalesOfc", "width": "360px", "columnIndex": 11}' />
+                                    </t:customData>
+                                    <Text text="NewSalesOfc"/>
+                                    <t:template>
+                                        <Input id="idNewSalesOfcInp" showValueHelp="true" value="{NewSalesOfc}" valueHelpRequest=".onValueHelpRequestedSalesOfc" />
+                                    </t:template>
+                                </t:Column>
+                                <t:Column id="idNewSalesGroupCl">
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewSalesGroup","columnKey": "NewSalesGroup", "width": "360px", "columnIndex": 13}' />
+                                    </t:customData>
+                                    <Text text="NewSalesGroup"/>
+                                    <t:template>
+                                        <Input id="idNewSalesGroupInp" value="{NewSalesGroup}" valueHelpRequest=".onValueHelpRequestedSalesGrp" showValueHelp="true" />
+                                    </t:template>
+                                </t:Column>
+                                <t:Column id="idNewSalesDistCl">
+                                    <t:customData>
+                                        <core:CustomData key="p13nData" value='\{"leadingProperty": "NewSalesDist","columnKey": "NewSalesDist", "width": "360px", "columnIndex": 15}' />
+                                    </t:customData>
+                                    <Text text="NewSalesDist"/>
+                                    <t:template>
+                                        <Input id="idNewSalesDistInp" showValueHelp="true" value="{NewSalesDist}" valueHelpRequest=".onValueHelpRequestedSalesDis" />
+                                      
+                                    </t:template>
+                                </t:Column>
+                            </t:columns>
+                        </t:Table>
+                    </smartTable:SmartTable>
+
+                 
+                </content>
+            </Page>
+        </pages>
+    </App>
+
+
+
+
+
+</mvc:View>

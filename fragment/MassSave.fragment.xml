@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<core:FragmentDefinition 
+xmlns:f="sap.ui.layout.form" 
+xmlns:core="sap.ui.core" 
+xmlns="sap.m"
+xmlns:l="sap.ui.layout"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:t="sap.ui.table"
+xmlns:smartTable="sap.ui.comp.smarttable">
+
+
+<Dialog id="_IdDialogManual" contentHeight= "260px" contentWidth="651px" title="Mass Save">
+
+
+<content>
+
+<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormDisplay354"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Address"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="NewPersonalNo" />
+				<Input id="idNewPersonalNo" value="{MassDataModel>/NewPersonalNo}" />
+				<Label text="NewSalesOfc" />
+				<Input id="idNewSalesOfc" value="{MassDataModel>/NewSalesOfc}" />
+				<Label text="NewSalesGroup" />
+				<Input id="idNewSalesGroup" value="{MassDataModel>/NewSalesGroup}" />
+				<Label text="NewSalesDist" />
+				<Input id="idNewSalesDist" value="{MassDataModel>/NewSalesDist}" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+               
+
+</content>
+
+
+<buttons>
+
+
+<Button id="_IDGenButtonMU" text="{i18n>Update}" press="onDialogManualUpdate"/>
+<Button id="_IDGenButtonMC" text="{i18n>Close}" press="onDialogManualClose"/>
+
+</buttons>
+
+</Dialog>
+
+</core:FragmentDefinition>

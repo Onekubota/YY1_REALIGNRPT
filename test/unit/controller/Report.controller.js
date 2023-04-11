@@ -1,0 +1,1 @@
+sap.ui.define(["zrealignreport/zrealignreport/controller/Report.controller"],function(t){"use strict";QUnit.module("Report Controller");QUnit.test("I should test the Report controller",function(e){var o=new t;o.onInit();e.ok(o)})});

@@ -1,0 +1,150 @@
+<core:FragmentDefinition xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:t="sap.ui.table" height="100%"
+    xmlns:smartTable="sap.ui.comp.smarttable">
+
+
+    <Dialog id="_IdDialogManualUpload" contentHeight= "100%" contentWidth="100%" title="Exported File Data">
+
+        <content>
+                <t:Table selectionMode="None" width="100%" rows="{localModel>/items}">
+                    <t:columns>
+                     <t:Column width="8rem">
+                            <Text text="BPNumber" />
+                            <t:template>
+                                <Text text="{localModel>BP Number}" />
+                            </t:template>
+                        </t:Column>
+                         <t:Column width="8rem">
+                            <Text text="BPName" />
+                            <t:template>
+                                <Text text="{localModel>BP Name}" />
+                            </t:template>
+                        </t:Column>
+                         <t:Column width="8rem">
+                            <Text text="Category" />
+                            <t:template>
+                                <Text text="{localModel>Category}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="NewValidToDate" />
+                            <t:template>
+                                <Text text="{localModel>NewValidToDate}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="Division" />
+                            <t:template>
+                                <Text text="{localModel>Division}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="PartnerFunction" />
+                            <t:template>
+                                <Text text="{localModel>Partner Function}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="DistributionChannel" />
+                            <t:template>
+                                <Text text="{localModel>Distribution Channel}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="ExistPersonalNo" />
+                            <t:template>
+                                <Text text="{localModel>Exist Personal No}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="ExstSalesOfc" />
+                            <t:template>
+                                <Text text="{localModel>Exst Sales Ofc}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="ExstSalesGroup" />
+                            <t:template>
+                                <Text text="{localModel>Exst Sales Group}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem" visible="false">
+                            <Text text="ExstSalesGroup" />
+                            <t:template>
+                                <Text text="{localModel>Exst Sales Group}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="NewPersonalNo" />
+                            <t:template>
+                                <Text text="{localModel>NewPersonalNo}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="Sales Group" />
+                            <t:template>
+                                <Text text="{localModel>Sales Group}" />
+                            </t:template>
+                        </t:Column>
+                         <t:Column width="8rem">
+                            <Text text="Sales Office" />
+                            <t:template>
+                                <Text text="{localModel>Sales Office}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="Sales District" />
+                            <t:template>
+                                <Text text="{localModel>Sales District}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="SalesOrganization" />
+                            <t:template>
+                                <Text text="{localModel>Sales Organization}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="NewSalesOfc"/>
+                            <t:template>
+                                <Text text="{localModel>NewSalesOfc}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="NewSalesGroup"/>
+                            <t:template>
+                                <Text text="{localModel>NewSalesGroup}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="ExstSalesDist"/>
+                            <t:template>
+                                <Text text="{localModel>Exst Sales Dist}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="NewSalesDist"/>
+                            <t:template>
+                                <Text text="{localModel>NewSalesDist}" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="8rem">
+                            <Text text="Valid On Date"/>
+                            <t:template>
+                                <Text text="{localModel>Valid On Date}" />
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+                </t:Table>
+
+        </content>
+        <buttons>
+            <Button id="_IDGenButtonUC" text="{i18n>close}" press="onDialogUploadClose"/>
+        </buttons>
+    </Dialog>
+
+</core:FragmentDefinition>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_OTC_REALIGNMENT_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="DistChannelVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DistributionChannel"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="DistributionChannelText" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Distribution Channel Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrgVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrganization"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrganizationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Sales Org Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="RealignmentData" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrganization"/>
+                </Key>
+                <Property Name="BusinessPartnerRB" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="BusinessPartnerRB" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesOffice" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Office" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Sales Group" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesDistrict" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Sales District" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PersonalNo" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Personal No" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="CreatedOnDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Created On Date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OpenSalesOrderRB" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="OpenSalesOrderRB" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidityDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Validity Date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="BPNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="BP Number" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="BPName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="BP Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ExistPersonalNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ExistPersonalNo" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NewPersonalNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NewPersonalNo" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ExstSalesOfc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ExstSalesOfc" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NewSalesOfc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NewSalesOfc" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ExstSalesGroup" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ExstSalesGroup" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NewSalesGroup" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NewSalesGroup" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="ExstSalesDist" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="ExstSalesDist" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="NewSalesDist" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="NewSalesDist" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesDoc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesDoc" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SalesDocNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SalesDocNo" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SoldToParty" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PartnerFunction" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PartnerFunction" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DivisionVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Division"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DivisionName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="DivisionName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZGW_OTC_REALIGNMENT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="DistChannelVHSet" EntityType="ZGW_OTC_REALIGNMENT_SRV.DistChannelVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrgVHSet" EntityType="ZGW_OTC_REALIGNMENT_SRV.SalesOrgVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="RealignmentDataSet" EntityType="ZGW_OTC_REALIGNMENT_SRV.RealignmentData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DivisionVHSet" EntityType="ZGW_OTC_REALIGNMENT_SRV.DivisionVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://s4d.kubota-kna.com:44300/sap/opu/odata/sap/ZGW_OTC_REALIGNMENT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4d.kubota-kna.com:44300/sap/opu/odata/sap/ZGW_OTC_REALIGNMENT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

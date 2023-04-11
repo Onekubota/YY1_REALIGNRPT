@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(r){"use strict";return r.extend("zrealignreport.zrealignreport.controller.controller.App",{onInit(){}})});

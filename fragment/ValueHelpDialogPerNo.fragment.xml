@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+	xmlns="sap.ui.comp.valuehelpdialog"
+	xmlns:m="sap.m"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:core="sap.ui.core">
+	<ValueHelpDialog
+		title="Personal Number"
+		ok=".onValueHelpOkPress"
+		cancel=".onValueHelpCancelPress"
+		supportRanges="true"
+		key="PERSONNELNUMBER"
+		descriptionKey="DFSOBJECTSHORTNAME"
+        supportMultiselect="false">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearchPer" isRunningInValueHelpDialog="true">
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem
+						groupName="_BASIC"
+						name="PERSONNELNUMBER"
+						label="Personal Number"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="PERSONNELNUMBER" />
+						</fb:control>
+					</fb:FilterGroupItem>
+                    	<fb:FilterGroupItem
+						groupName="_BASIC"
+						name="DFSOBJECTSHORTNAME"
+						label="Employee's Name"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="DFSOBJECTSHORTNAME" />
+						</fb:control>
+					</fb:FilterGroupItem>
+                    	<fb:FilterGroupItem
+						groupName="_BASIC"
+						name="EMPLOYEENAME"
+						label="Formatted Name of Employee or Applicant"
+						visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="EMPLOYEENAME" />
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>
+
+<!-- <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Products"
+		items="{/PersonalNoVHSet}"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"
+			title="{PERSONNELNUMBER}"
+			description="{DFSOBJECTSHORTNAME}" />
+	</SelectDialog>
+</core:FragmentDefinition> -->
